@@ -36,7 +36,7 @@ public class Step {
         publicationReferencePage.openPage();
     }
 
-    public void writeAndClean(String name, String lastName, int number) {
+    public void writeAndClean(String name, String lastName, int number){
         PublicationReferencePage publicationReferencePage = new PublicationReferencePage(driver);
         publicationReferencePage.clearTable();
         publicationReferencePage.writeFirstName(name, number);
@@ -73,7 +73,7 @@ public class Step {
 
     }
 
-    public void selectBookEnteredAndCheckResult(String firstName, String lastName, String titleBook, String numberEdition, String country, String publicationHouse, String redactor, int number) {
+    public void selectBookEnteredAndCheckResult(String firstName, String lastName, String titleBook, String numberEdition, String country, String publicationHouse, String redactor, int number)  {
         PublicationReferencePage publicationReferencePage = new PublicationReferencePage(driver);
         publicationReferencePage.clearTable();
         publicationReferencePage.selectBook();

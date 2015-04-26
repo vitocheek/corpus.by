@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class CheckDisabledTest extends BaseTest{
 
     @Test
-    public void checkClearTest(){
+    public void checkDisabledTest(){
 
         step.checkDisabledTable();
     }

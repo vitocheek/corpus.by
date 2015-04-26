@@ -12,7 +12,7 @@ public class CheckWebSourceTest extends BaseTest{
     final int  NUMBER = 0;
 
     @Test
-    public void checkClearTest(){
+    public void checkWebSourceTest() {
         step.selectWebResourceEnteredAndCheckResult(FIRSTNAME,LASTNAME,PBLICATIONTITLE,TITLEWEBRESOURCE,WEBRESOURCEURL,NUMBER); }
 
 }

@@ -13,7 +13,7 @@ public class CheckEnteredAndCheckResultTest extends BaseTest{
     final String  NUMBER_EDITION = "4";
     final int  NUMBER = 0;
     @Test
-    public void checkClearAndCheckResult(){
+    public void checkClearAndCheckResult() {
         step.checkEnteredAndResult(FIRSTNAME,LASTNAME,TITLEBOOK ,PUBLICATIONTITLE, PAGETO, PAGEFROM, NUMBER_EDITION,NUMBER);
     }
 }

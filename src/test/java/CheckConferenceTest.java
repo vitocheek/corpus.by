@@ -16,7 +16,7 @@ public class CheckConferenceTest extends BaseTest{
     final int  NUMBER = 0;
 
     @Test
-    public void checkClearTest(){
+    public void checkConferenceTest(){
         step.selectConferenceEnteredAndCheckResult(FIRSTNAME,LASTNAME,TITLEBOOK,CONFERENCETITLE,PAGETO,PAGEFROM,CITE,PLACEID,PUBLICATIONHOUSE,NUMBER);
     }
 

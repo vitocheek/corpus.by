@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class CheckClearTest extends BaseTest{
 
     @Test
-    public void checkClearTest(){
+    public void checkClearTest()  {
         step.checkClear();
     }
 

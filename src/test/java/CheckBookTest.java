@@ -14,7 +14,7 @@ public class CheckBookTest extends BaseTest{
     final int  NUMBER = 0;
 
     @Test
-    public void checkClearTest(){
+    public void checkClearTest() {
         step.selectBookEnteredAndCheckResult(FIRSTNAME, LASTNAME, TITLEBOOK,NUMBERING,CITE,PUBLICATIONHOUSE,REDACTOR,NUMBER );
     }
 
