@@ -23,7 +23,7 @@ public class PublicationReferencePage extends Page {
 
     Date date = new Date();
     SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy");
-    SimpleDateFormat format2 = new SimpleDateFormat(" yyyy ");
+    SimpleDateFormat format2 = new SimpleDateFormat("yyyy");
 
     @FindBy(css = "input.red-button[name='btn_type_clear_and_show_examples']")
     private WebElement showExamplesButton;
@@ -59,15 +59,15 @@ public class PublicationReferencePage extends Page {
 
     public void enterPublication(String publicationTitle, String titleBook, String pageFr, String pageT, String numberEdition) {
         publicationName.sendKeys(titleBook);
-        Assert.assertEquals(publicationName.getText(), titleBook, "publicationName is not  equals");
+        Assert.assertEquals(publicationName.getAttribute("value"), titleBook, "publicationName is not  equals");
         publicationTypeButton.sendKeys(publicationTitle);
-        Assert.assertEquals(publicationTypeButton.getText(), publicationTitle, "publicationType is not  equals");
+        Assert.assertEquals(publicationTypeButton.getAttribute("value"), publicationTitle, "publicationType is not  equals");
         pagesFrom.sendKeys(pageFr);
-        Assert.assertEquals(pagesFrom.getText(), pageFr, "pagesFrom is not  equals");
+        Assert.assertEquals(pagesFrom.getAttribute("value"), pageFr, "pagesFrom is not  equals");
         pagesTo.sendKeys(pageT);
-        Assert.assertEquals(pagesTo.getText(), pageT, "pagesTo is not  equals");
+        Assert.assertEquals(pagesTo.getAttribute("value"), pageT, "pagesTo is not  equals");
         journalNumber.sendKeys(numberEdition);
-        Assert.assertEquals(journalNumber.getText(), numberEdition, "journalNumber is not  equals");
+        Assert.assertEquals(journalNumber.getAttribute("value"), numberEdition, "journalNumber is not  equals");
 
     }
 
@@ -206,16 +206,14 @@ public class PublicationReferencePage extends Page {
     }
 
     public void checkResult(String firstName, String lastName, String titleBook, String publicationTitle, String pageTo, String pageFrom, String numberEdition) {
-
-
-        textaeraWithReference.getText().contains(firstName);
-        textaeraWithReference.getText().contains(lastName);
-        textaeraWithReference.getText().contains(titleBook);
-        textaeraWithReference.getText().contains(publicationTitle);
-        textaeraWithReference.getText().contains(pageTo);
-        textaeraWithReference.getText().contains(pageFrom);
-        textaeraWithReference.getText().contains(numberEdition);
-        textaeraWithReference.getText().contains(format2.format(date));
+        Assert.assertTrue(textaeraWithReference.getText().contains(firstName));
+        Assert.assertTrue(textaeraWithReference.getText().contains(lastName));
+        Assert.assertTrue(textaeraWithReference.getText().contains(titleBook));
+        Assert.assertTrue(textaeraWithReference.getText().contains(publicationTitle));
+        Assert.assertTrue(textaeraWithReference.getText().contains(pageTo));
+        Assert.assertTrue(textaeraWithReference.getText().contains(pageFrom));
+        Assert.assertTrue(textaeraWithReference.getText().contains(numberEdition));
+        Assert.assertTrue(textaeraWithReference.getText().contains(format2.format(date)));
     }
 
     @FindBy(css = "input[name='current_year']")
@@ -228,7 +226,7 @@ public class PublicationReferencePage extends Page {
         if (!checkBoxCurrentYear.isSelected()) {
             checkBoxCurrentYear.click();
         }
-        Assert.assertEquals(inputYear.getText(), format2.format(date), "Wrong year ");
+        Assert.assertEquals(inputYear.getAttribute("value"), format2.format(date), "Wrong year ");
     }
     
     @FindBy(css = "select[name='publication_type']")
@@ -257,15 +255,15 @@ public class PublicationReferencePage extends Page {
 
     public void enterPublicationBook(String titleBook, String numberEdition, String country, String publicationHouse, String redactor) {
         bookTitle.sendKeys(titleBook);
-        Assert.assertEquals(bookTitle.getText(), titleBook, "publicationName is not  equals");
+        Assert.assertEquals(bookTitle.getAttribute("value"), titleBook, "publicationName is not  equals");
         volumeOfBook.sendKeys(numberEdition);
-        Assert.assertEquals(volumeOfBook.getText(), numberEdition, "volumeOfBook is not  equals");
+        Assert.assertEquals(volumeOfBook.getAttribute("value"), numberEdition, "volumeOfBook is not  equals");
         city.sendKeys(country);
-        Assert.assertEquals(city.getText(), country, "city is not  equals");
+        Assert.assertEquals(city.getAttribute("value"), country, "city is not  equals");
         publishHouse.sendKeys(publicationHouse);
-        Assert.assertEquals(publishHouse.getText(), publicationHouse, "publishHouse is not  equals");
+        Assert.assertEquals(publishHouse.getAttribute("value"), publicationHouse, "publishHouse is not  equals");
         redactorBook.sendKeys(redactor);
-        Assert.assertEquals(redactorBook.getText(), redactor, "journalNumber is not  equals");
+        Assert.assertEquals(redactorBook.getAttribute("value"), redactor, "journalNumber is not  equals");
 
     }
 
@@ -304,22 +302,21 @@ public class PublicationReferencePage extends Page {
 
     public void enterPublicationConference(String titleBook, String conferenceTItle, String pageT, String pageFr, String country, String placeID, String publicationHOUSE) {
         publicationName.sendKeys(titleBook);
-        Assert.assertEquals(publicationName.getText(), titleBook, "publicationName is not  equals");
+        Assert.assertEquals(publicationName.getAttribute("value"), titleBook, "publicationName is not  equals");
         conferenceTitle.sendKeys(conferenceTItle);
-        Assert.assertEquals(conferenceTitle.getText(), conferenceTItle, "conferenceType is not  equals");
+        Assert.assertEquals(conferenceTitle.getAttribute("value"), conferenceTItle, "conferenceType is not  equals");
         pagesFrom.sendKeys(pageFr);
-        Assert.assertEquals(pagesFrom.getText(), pageFr, "pagesFrom is not  equals");
+        Assert.assertEquals(pagesFrom.getAttribute("value"), pageFr, "pagesFrom is not  equals");
         pagesTo.sendKeys(pageT);
-        Assert.assertEquals(pagesTo.getText(), pageT, "pagesTo is not  equals");
-        pagesTo.sendKeys(pageT);
-        Assert.assertEquals(city.getText(), country, "city is not  equals");
+        Assert.assertEquals(pagesTo.getAttribute("value"), pageT, "pagesTo is not  equals");
+        city.sendKeys(country);
+        Assert.assertEquals(city.getAttribute("value"), country, "city is not  equals");
         placeId.sendKeys(placeID);
-        Assert.assertEquals(placeId.getText(), placeId, "pagesTo is not  equals");
+        Assert.assertEquals(placeId.getAttribute("value"), placeID, "pagesTo is not  equals");
         publishHouse.sendKeys(publicationHOUSE);
-        Assert.assertEquals(publishHouse.getText(), publicationHOUSE, "publicationHouse is not  equals");
+        Assert.assertEquals(publishHouse.getAttribute("value"), publicationHOUSE, "publicationHouse is not  equals");
         checkBoxCurrentYear.click();
-        Assert.assertEquals(inputYear.getText(), format2.format(date), " inputYear is not current");
-
+        Assert.assertEquals(inputYear.getAttribute("value"), format2.format(date), " inputYear is not current");
     }
 
     public void checkResultConference(String firstName, String lastName, String titleBook, String conferenceTitle, String pageTo, String pageFrom, String city, String placeID, String publicationHouse) {
